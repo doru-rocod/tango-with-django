@@ -15,7 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
+print(BASE_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -65,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -120,7 +121,17 @@ USE_L10N = True
 USE_TZ = True
 
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+
+# Media files
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = MEDIA_DIR
