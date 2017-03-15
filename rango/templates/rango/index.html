@@ -7,19 +7,28 @@
 <script src="{% static "js/base.js" %}"></script>
 </head>
 <body>
-	<h1>Rango says...</h1>
-	<div>
-		hey there partner! <br />
-	</div>
+	<h1>Home</h1>
     <div>
         {% if categories %}
+        <h2>Most liked categories</h2>
             <ul>
                 {% for cat in categories %}
-                    <li>{{ cat.name}} </li>
+                    <li><a href="{% url "category" cat.slug %}">{{ cat.name}}</a></li>
                 {% endfor %}
             </ul>
         {% else %}
             <strong>There are no categories</strong>
+        {% endif %}
+    </div>
+
+    <div>
+        {% if most_viewed_pages %}
+            <h2>Most viewed pages</h2>
+            <ul>
+                {% for page in most_viewed_pages %}
+                    <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                {% endfor %}
+            </ul>
         {% endif %}
     </div>
 
