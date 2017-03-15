@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from rango.models import Category
 
 
 def index(request):
-    context_dict = {'boldmessage': "Cea mai buna portocala!"}
-    return render(request, 'rango/index.html', context=context_dict)
+    categories = Category.objects.order_by('-likes')[:5]
+    context = {'categories': categories}
+    return render(request, 'rango/index.html', context)
 
 
 def about(request):
