@@ -13,13 +13,13 @@
         <h2>Most liked categories</h2>
             <ul>
                 {% for cat in categories %}
-                    <li><a href="{% url "category" cat.slug %}">{{ cat.name}}</a></li>
+                    <li><a href="{% url "rango:category" cat.slug %}">{{ cat.name}}</a></li>
                 {% endfor %}
             </ul>
         {% else %}
             <strong>There are no categories</strong>
         {% endif %}
-        <a href=" {% url "add_category" %} ">Add a New Category</a>
+        <a href=" {% url "rango:add_category" %} ">Add a New Category</a>
     </div>
 
     <div>

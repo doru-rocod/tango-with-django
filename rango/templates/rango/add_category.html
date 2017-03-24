@@ -7,7 +7,7 @@
 <body>
     <h1>Add a Category</h1>
     <div>
-        <form action="{% url 'add_category' %}" id="category_form" method="post">
+        <form action="{% url 'rango:add_category' %}" id="category_form" method="post">
             {% csrf_token %}
             {% for hidden in form.hidden_fields %}
                 {{ hidden }}

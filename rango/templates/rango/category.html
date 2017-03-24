@@ -27,8 +27,8 @@
 
     <div>
         <a href="/rango/about/">About</a><br />
-        <a href="{% url "index" %}">Home</a>
-        <a href="{% url "add_page" cat_slug=category.slug %}">Add a Page</a>
+        <a href="{% url "rango:index" %}">Home</a>
+        <a href="{% url "rango:add_page" category.slug %}">Add a Page</a>
     </div>
         <img src="{% static "images/lw.jpg" %}" alt="Picture of Ludwig Wittgenstein">
 </body>
