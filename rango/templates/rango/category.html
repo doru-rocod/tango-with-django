@@ -1,14 +1,11 @@
-<!DOCTYPE html>
+{% extends "rango/base.html" %}
 {% load staticfiles %}
-<html>
-<head>
-<title>Rango</title>
-<link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
-<script src="{% static "js/base.js" %}"></script>
-</head>
-<body>
-    
-    <div>
+
+{% block title %}
+    {{ category.name}}
+{% endblock title %}
+
+{% block body %}
         {% if category %}
             <h1>{{ category.name }}</h1>
             {% if category.page_set.all %}
@@ -23,13 +20,5 @@
         {% else %}
             <strong>There is no such category</strong>
         {% endif %}
-    </div>
-
-    <div>
-        <a href="/rango/about/">About</a><br />
-        <a href="{% url "rango:index" %}">Home</a>
-        <a href="{% url "rango:add_page" category.slug %}">Add a Page</a>
-    </div>
-        <img src="{% static "images/lw.jpg" %}" alt="Picture of Ludwig Wittgenstein">
-</body>
-</html>
+        <a href="{% url 'rango:add_page' category.slug %}">Add Page</a>
+{% endblock body %}

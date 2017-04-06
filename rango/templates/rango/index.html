@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-<html>
-<head>
-<title>Rango</title>
-<link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
-<script src="{% static "js/base.js" %}"></script>
-</head>
-<body>
-	<h1>Home</h1>
-    <div>
+{% extends "rango/base.html" %}
+{% load staticfiles rango_template_tags %}
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block body %}
         {% if categories %}
         <h2>Most liked categories</h2>
             <ul>
@@ -34,8 +30,6 @@
     </div>
 
 	<div>
-		<a href="/rango/about/">About</a><br />
 		<img src="{% static "images/lw.jpg" %}" alt="Picture of Ludwig Wittgenstein">
 	</div>
-</body>
-</html>
+{% endblock body %}
